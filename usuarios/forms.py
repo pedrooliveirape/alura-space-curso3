@@ -43,7 +43,7 @@ class CadastroForms(forms.Form):
         label='Senha',
         required=True,
         max_length=100,
-        widget=forms.TextInput(
+        widget=forms.PasswordInput(
             {'class': 'form-control',
              'placeholder': 'Digite sua senha'}
         )
@@ -52,7 +52,7 @@ class CadastroForms(forms.Form):
         label='Confirmação de senha',
         required=True,
         max_length=100,
-        widget=forms.TextInput(
+        widget=forms.PasswordInput(
             {'class': 'form-control',
              'placeholder': 'Digite sua senha mais uma vez'}
         )
