@@ -57,5 +57,24 @@ class CadastroForms(forms.Form):
              'placeholder': 'Digite sua senha mais uma vez'}
         )
     )
-    
-    
+
+    def clean_nome_cadastro(self):
+        nome = self.cleaned_data.get('nome_cadastro')
+
+        if nome:
+            nome = nome.strip()
+            if ' ' in nome:
+                raise forms.ValidationError('Espaços não são permitidos nesse campo')
+            else:
+                return nome
+     
+     
+    def clean_password2(self):
+        senha1 = self.cleaned_data.get('password1')
+        senha2 = self.cleaned_data.get('password2')
+
+        if senha1 and senha2:
+            if senha1 != senha2:
+                raise forms.ValidationError('As senhas digitadas não conferem')
+            else:
+                return senha2

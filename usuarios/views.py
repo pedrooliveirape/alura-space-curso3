@@ -36,10 +36,6 @@ def cadastro(request):
         form = CadastroForms(request.POST)
 
         if form.is_valid():
-            
-            if form['password1'].value() != form['password1'].value():
-                messages.error(request, 'As senhas digitadas não conferem')
-                return redirect('cadastro')
 
             nome = form['nome_cadastro'].value()
             email = form['email'].value()
